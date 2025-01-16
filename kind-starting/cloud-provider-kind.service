@@ -1,0 +1,12 @@
+[Unit]
+Description=cloud-provider-kind
+
+[Service]
+Type=simple
+ExecStart=/home/shawn/bin/cloud-provider-kind
+KillMode=mixed
+TimeoutStopSec=2s
+SendSIGHUP=yes
+
+[Install]
+WantedBy=default.target

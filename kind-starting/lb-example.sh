@@ -78,3 +78,14 @@ echo "----------------------------------------"
 read -n 1
 set -x
 curl -i $(kubectl get service lb-service-local -o json | jq -r .status.loadBalancer.ingress[0].ip)
+
+
+set +x
+echo "----------------------------------------"
+echo "let's see what cloud-provider-kind doing"
+echo " - once service created, there would be a kindccm 1x1 to handle"
+echo "----------------------------------------"
+read -n 1
+set -x
+
+podman ps

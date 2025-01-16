@@ -25,3 +25,7 @@ podman pod create -p 12380:80 kalug-test-pod2
 podman run -dt --pod kalug-test-pod2 quay.io/libpod/alpine_nginx:latest
 curl localhost:12380
 
+
+#################
+podman kube generate kalug-test-pod
+

@@ -1,0 +1,3 @@
+CLUSTER_NAME=multi-nodes
+
+KUBECONFIG=$HOME/.kube/config-kind-${CLUSTER_NAME}.yaml

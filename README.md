@@ -5,7 +5,7 @@
 
 ### Kind related
 
-- kind-starting/create-kind-cluster.sh
+- kind-starting/create-kind-cluster.sh - Shawn 把下載之類的動作都寫在 script直接執行就可以 (有問題歡迎說)
 - kind-starting/lb-example.sh
 - kind-multi-nodes
 

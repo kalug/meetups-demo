@@ -1,5 +1,5 @@
 {
-  "title": "Code Actions",
+  "title": "Kind",
   "description": "Let users copy or exec code blocks",
   "details": {
     "intro": {
@@ -7,7 +7,7 @@
     },
     "steps": [
       {
-        "text": "step1.md"
+        "text": "create-kind-cluster.md"
       }
     ]
   },

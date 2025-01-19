@@ -7,7 +7,16 @@
     },
     "steps": [
       {
-        "text": "create-kind-cluster.md"
+        "text": "1-create-cluster.md"
+      },
+      {
+        "text": "2-setup-lb.md"
+      },
+      {
+        "text": "3-lb-example.md"
+      },
+      {
+        "text": "4-what-in-kind-node.md"
       }
     ]
   },

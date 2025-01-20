@@ -10,7 +10,7 @@ export CLOUD_PROVIDER_KIND_VER=0.5.0
 
 curl -Lo ${BIN_PATH}/kind https://kind.sigs.k8s.io/dl/v${KIND_VER}/kind-linux-amd64 && chmod +x ${BIN_PATH}/kind
 curl -Lo /tmp/cloud-provider-kind.tgz https://github.com/kubernetes-sigs/cloud-provider-kind/releases/download/v${CLOUD_PROVIDER_KIND_VER}/cloud-provider-kind_${CLOUD_PROVIDER_KIND_VER}_linux_amd64.tar.gz && tar zxvf /tmp/cloud-provider-kind.tgz -C ${BIN_PATH} cloud-provider-kind
-curl -Lo ${BIN_PATH}/kubectl "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x ${BIN_PATH}/kubectl"
+curl -Lo ${BIN_PATH}/kubectl "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && chmod +x ${BIN_PATH}/kubectl
 ```{{exec}}
 
 ### kind create cluster
@@ -26,6 +26,10 @@ Since killercode supports podman and docker, we choice podman as our container r
 
 ```
 export KIND_EXPERIMENTAL_PROVIDER=podman
+```{{exec}}
+
+
+```
 export CLUSTER_NAME=kalug
 kind create cluster -n ${CLUSTER_NAME}
 ```{{exec}}
@@ -38,17 +42,17 @@ kind get clusters
 
 ```
 kubectl get nodes
-```
+```{{exec}}
   
 ```
 podman ps
-```
+```{{exec}}
 
 ```
 export CLUSTER_NAME=kalug
 podman inspect ${CLUSTER_NAME}-control-plane | jq | less
-```
+```{{exec}}
 
 ```
 podman inspect ${CLUSTER_NAME}-control-plane | jq  .[0].NetworkSettings.Networks.kind.IPAddress
-```
+```{{exec}}

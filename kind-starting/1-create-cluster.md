@@ -26,6 +26,7 @@ Since killercode supports podman and docker, we choice podman as our container r
 
 ```
 export KIND_EXPERIMENTAL_PROVIDER=podman
+export CLUSTER_NAME=kalug
 kind create cluster -n ${CLUSTER_NAME}
 ```{{exec}}
 

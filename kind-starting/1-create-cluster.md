@@ -1,5 +1,5 @@
 ### Prepare and related commands
-
+fix mis
 download kind, cloud-provider-kind, kubectl
 
 ```
@@ -10,7 +10,7 @@ export CLOUD_PROVIDER_KIND_VER=0.5.0
 
 curl -Lo ${BIN_PATH}/kind https://kind.sigs.k8s.io/dl/v${KIND_VER}/kind-linux-amd64 && chmod +x ${BIN_PATH}/kind
 curl -Lo /tmp/cloud-provider-kind.tgz https://github.com/kubernetes-sigs/cloud-provider-kind/releases/download/v${CLOUD_PROVIDER_KIND_VER}/cloud-provider-kind_${CLOUD_PROVIDER_KIND_VER}_linux_amd64.tar.gz && tar zxvf /tmp/cloud-provider-kind.tgz -C ${BIN_PATH} cloud-provider-kind
-curl -Lo ${BIN_PATH}/kubectl "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+curl -Lo ${BIN_PATH}/kubectl "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x ${BIN_PATH}/kubectl"
 ```{{exec}}
 
 ### kind create cluster

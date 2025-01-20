@@ -4,7 +4,7 @@ create namespace to isolate tests
 
 ```
 kubectl create namespace lb-example
-```{{ecec}}
+```{{exec}}
 
 set default namespace as lb-example
 

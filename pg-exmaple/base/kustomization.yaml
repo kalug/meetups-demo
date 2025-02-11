@@ -1,0 +1,9 @@
+resources:
+- pg.yaml
+
+secretGenerator:
+- name: example-secret-1
+  files:
+  - password.txt
+#configurations:
+#- https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/releases/cnpg-1.25.0.yaml

@@ -1,0 +1,8 @@
+namespace: cnpg-test
+#namePrefix: kind-cnpg-
+resources:
+  - namespace.yaml
+  - ./../base
+
+patches:
+  - path: storage.yaml

@@ -4,6 +4,8 @@ metadata:
   name: cluster-example
 spec:
   instances: 3
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.2
+  #imageName: hub.easystack.cn/distro.pkgs/cnpg.psql:17.2
 
   storage:
     size: 1Gi

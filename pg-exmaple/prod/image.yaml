@@ -1,0 +1,9 @@
+apiVersion: postgresql.cnpg.io/v1
+
+kind: Cluster
+
+metadata:
+  name: cluster-example
+
+spec:
+  imageName: hub.easystack.cn/distro.pkgs/cnpg.psql:17.2

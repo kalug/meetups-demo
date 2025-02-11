@@ -1,0 +1,51 @@
+apiVersion: policies.kubewarden.io/v1
+kind: ClusterAdmissionPolicy
+metadata:
+  annotations:
+    io.kubewarden.policy.category: PSP
+    io.kubewarden.policy.severity: medium
+  name: pod-privileged-policy
+spec:
+  module: registry://ghcr.io/kubewarden/policies/pod-privileged:v0.3.1
+  settings: {}
+  rules:
+  - apiGroups:
+    - ''
+    apiVersions:
+    - v1
+    resources:
+    - pods
+    operations:
+    - CREATE
+  - apiGroups:
+    - ''
+    apiVersions:
+    - v1
+    resources:
+    - replicationcontrollers
+    operations:
+    - CREATE
+    - UPDATE
+  - apiGroups:
+    - apps
+    apiVersions:
+    - v1
+    resources:
+    - deployments
+    - replicasets
+    - statefulsets
+    - daemonsets
+    operations:
+    - CREATE
+    - UPDATE
+  - apiGroups:
+    - batch
+    apiVersions:
+    - v1
+    resources:
+    - jobs
+    - cronjobs
+    operations:
+    - CREATE
+    - UPDATE
+  mutating: false

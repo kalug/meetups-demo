@@ -19,3 +19,7 @@ systemctl --user shawn start cloud-provider-kind
 
 journalctl --user -u cloud-provider-kind -f
 ```
+
+```
+kubectl label node kind-control-plane node.kubernetes.io/exclude-from-external-load-balancers-
+```

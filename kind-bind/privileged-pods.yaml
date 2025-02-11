@@ -1,0 +1,40 @@
+# Save the output of this file and use kubectl create -f to import
+# it into Kubernetes.
+#
+# Created with podman-5.3.1
+
+# NOTE: If you generated this yaml from an unprivileged and rootless podman container on an SELinux
+# enabled system, check the podman generate kube man page for steps to follow to ensure that your pod/container
+# has the right permissions to access the volumes added.
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2025-01-21T09:42:51Z"
+  labels:
+    app: ecstaticbose-pod
+  name: ecstaticbose-pod
+spec:
+  containers:
+  - command:
+    - bash
+    env:
+    - name: TERM
+      value: xterm
+    image: quay.io/noirolabs/ubi9:latest.172.28.184.246
+    name: ecstaticbose
+    securityContext:
+      privileged: true
+      procMount: Unmasked
+    stdin: true
+    tty: true
+    volumeMounts:
+    - mountPath: /run
+      name: run-host-0
+  restartPolicy: Never
+  volumes:
+  - hostPath:
+      path: /run
+      type: Directory
+    name: run-host-0
+

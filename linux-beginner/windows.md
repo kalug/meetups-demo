@@ -1,3 +1,4 @@
+
 對於Linux初學者, 目前 windows 有不少有用的工具
 
 # Windows terminal
@@ -6,14 +7,14 @@ https://github.com/microsoft/terminal
 
 Windows Terminal 是一個現代化、功能豐富的終端應用程式，適用於 Windows 10 及更高版本。它可作為傳統 Windows 控制台的替代品，並為各種命令列工具提供統一的介面。
 
-### 主要功能：
+## 主要功能：
 
 *   **多個索引標籤和窗格：** Windows Terminal 可讓您使用索引標籤在單一視窗中使用多個命令列應用程式。您也可以將視窗分割成多個窗格，以並排檢視和管理多個工作階段。
 
 ![Windows Terminal with multiple panes](https://learn.microsoft.com/en-us/windows/terminal/images/tear-tab.gif)
 
 *   **多個設定檔：** 您可以為各種 shell（例如命令提示字元、PowerShell 和 Windows 子系統 Linux 版 (WSL) 的發行版）建立和設定不同的設定檔。它也支援與 Azure Cloud Shell 和 SSH 的原生連線。
-*   **自訂與主題：** 該應用程式提供廣泛的自訂選項。您可以使用主題、背景圖片和索引標籤顏色設定來個人化外觀。它還可讓您選擇偏好的字型，預設字型為 Cascadia Code，旨在增強終端機的外觀與風格。
+*   **自訂與主題：：** 該應用程式提供廣泛的自訂選項。您可以使用主題、背景圖片和索引標籤顏色設定來個人化外觀。它還可讓您選擇偏好的字型，預設字型為 Cascadia Code，旨在增強終端機的外觀與風格。
 
 
 *   **GPU 加速文字轉譯：** Windows Terminal 利用 GPU 進行文字轉譯，與舊版主控台相比，可提供更流暢、更快速的效能。
@@ -40,6 +41,22 @@ PuTTY 是一款老牌且廣泛使用的免費開源SSH 客戶端工具 (1999 年
 | **可擴充性** | 開放原始碼，具有不斷發展的擴充功能和外掛程式生態系統 | 有限的可擴充性選項 |
 
 總而言之，Windows Terminal 是一款功能強大且現代化的終端應用程式，非常適合在本機上使用多個命令列工具的使用者。另一方面，PuTTY 是一款輕量級且可靠的 SSH 用戶端，擅長連線和管理遠端伺服器。
+
+
+# gcloud sdk for windows
+
+https://cloud.google.com/sdk/docs/install#windows
+
+## 安裝步驟
+
+1.  **下載 Google Cloud CLI 安裝程式：**
+    前往 [Google Cloud SDK 下載頁面](https://cloud.google.com/sdk/docs/install#windows) 下載最新版本的 Google Cloud CLI 安裝程式。
+
+2.  **執行安裝程式：**
+    執行下載的 `.exe` 安裝程式。安裝程式會引導您完成設定過程，包括處理 Python 依賴項。
+
+3.  **完成設定：**
+    安裝完成後，安裝程式會提供選項來啟動 gcloud CLI shell 並配置您的設定。建議您完成這些配置步驟，以便開始使用 gcloud CLI。
 
 # WSL
 

@@ -169,6 +169,7 @@ gcloud cloud-shell ssh
 #### novnc show
 
 ```
+# $WEB_PORT
 docker run -p 8080:80 -e RESOLUTION=1920x1080 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
 ```
 
@@ -445,18 +446,22 @@ LHS
 
 ---
 
-Console 環境介紹：Bash/fish 指令、Shell 腳本、ssh
+上次 在短短的 2.5小時, 我們快速介紹安裝Linux前需要的部分
+這次我們會帶入 gemini-cli, 讓小幫手AI協助我們 克服 對terminal的不熟悉
+並注重補充 container 實戰 (不需要第一堂有上過, 第一堂上過也歡迎)
+
+Console 環境介紹： Gemini-cli、Bash/fish 指令、Shell 腳本、ssh
 基礎架構：kernel、systemd、檔案系統、權限模型
 套件管理：apt（以 Ubuntu/Debian 示範）、dnf (fedora)
-容器入門：Docker 實作
+容器入門：如何執行 container, 編譯 container image
 開源介紹：社群、生態系 如 github
 
 
 議程
-15:00 – 15:15 報到 & 開場
-15:15 – 16:00　Linux 核心概念與環境設定
-16:00 – 16:30 Console 環境實戰
-16:30 – 17:00 套件管理 & 容器基礎
-17:00 – 17:30　Demo安裝 & Q&A
+15:00 – 15:10 報到 & 開場
+15:10 – 15:30 環境設定 - gemini-cli + gcloud
+16:30 – 16:30 如何用 gemini-cli 學Linux
+16:30 – 17:15 容器基礎概念 與 操作
+17:10 – 17:30 Q&A
 
 

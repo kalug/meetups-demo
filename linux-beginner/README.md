@@ -29,7 +29,7 @@ https://meet.google.com/dwi-yjcx-mwx?pli=1
 學起來比較快也有方向性。
 
 本日目標
-1. 以 google cloud shell 做操作說明
+1. 以 google cloud shell /gemini-cli 做操作說明
 2. 對Linux 文字界面瞭解 - ssh / tmux / shell / editor
 3. Linux 基本架構 檔案/權限 - fs / LHS / account
 4. distro 選擇 & package 基本操作
@@ -160,23 +160,32 @@ nvidia cuda
 
 ### google cloud shell
 
+host 必要的套件 openssh/which/curl/wget
+
 ```
 curl sdk.cloud.google.com | tee gcloud.sh | sh -s -- --install-dir=$PWD/.gcloud
 gcloud auth login
 gcloud cloud-shell ssh
 ```
+#### windows
+1.  **下載 Google Cloud CLI 安裝程式：**
+    前往 [Google Cloud SDK 下載頁面](https://cloud.google.com/sdk/docs/install#windows) 下載最新版本的 Google Cloud CLI 安裝程式。
+
+2.  **執行安裝程式：**
+    執行下載的 `.exe` 安裝程式。安裝程式會引導您完成設定過程，包括處理 Python 依賴項。
+
+3.  **完成設定：**
+    安裝完成後，安裝程式會提供選項來啟動 gcloud CLI shell 並配置您的設定。建議您完成這些配置步驟，以便開始使用 gcloud CLI。
+
 
 #### novnc show
 
 ```
-# $WEB_PORT
+# $WEB_HOST:$PORT
 docker run -p 8080:80 -e RESOLUTION=1920x1080 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
 ```
 
 https://8080-cs-837155526422-default.cs-asia-east1-vger.cloudshell.dev
-
-
-
 
 ---
 
@@ -187,6 +196,7 @@ https://8080-cs-837155526422-default.cs-asia-east1-vger.cloudshell.dev
 2025 的 terminal / shell 環境, 多了不少使用者友善特點
 各語言都有在這些特性都有很好的library 支援
 
+gemini-cli
 Rust cli: https://www.rust-lang.org/what/cli
 
 - 顏色支援

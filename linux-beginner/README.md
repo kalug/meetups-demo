@@ -296,27 +296,6 @@ Suse
 
 ---
 
-## ssh
-
-* network - tcp/ip , client server
-* file system
-* auth / account
-
-```
-ssh account@host
-```
-
-#### ssh remote command
-
-#### ssh key
-
-#### scp
-
-#### ssh jump / proxy
-#### ssh tunnel
-#### sshuttle
-
-#### sshfs
 
 ----
 

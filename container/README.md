@@ -1,6 +1,6 @@
 # Docker Hello World
 
-This is a simple "Hello, World!" example using Docker.
+這是一個使用 Docker 的簡單 "Hello, World!" 範例。
 
 ## Dockerfile
 
@@ -9,25 +9,64 @@ FROM alpine:latest
 CMD ["echo", "Hello, World!"]
 ```
 
-### `Dockerfile` Explained
+### `Dockerfile` 解釋
 
-*   `FROM alpine:latest`: This line sets the base image for our container. We're using `alpine:latest`, which is a very small and secure Linux distribution.
-*   `CMD ["echo", "Hello, World!"]`: This is the command that will run when you start the container. It simply prints "Hello, World!" to your terminal.
+*   `FROM alpine:latest`: 這一行設定了我們容器的基礎映像。我們使用的是 `alpine:latest`，這是一個非常小巧且安全的 Linux 發行版。
+*   `CMD ["echo", "Hello, World!"]`: 這是當你啟動容器時將運行的命令。它只會簡單地在你的終端打印 "Hello, World!"。
 
-## Next Steps: Build and Run
+## 下一步：建置和運行
 
-Now, let's build the Docker image and run the container.
+現在，讓我們建置 Docker 映像並運行容器。
 
-1.  **Build the image:** This command reads the `Dockerfile` and builds your container image. We'll tag it with the name `hello-world-app`.
+1.  **建置映像：** 這個命令會讀取 `Dockerfile` 並建置你的容器映像。我們會給它打上 `hello-world-app` 的標籤。
     ```bash
     docker build -t hello-world-app .
     ```
 
-2.  **Run the container:** This command starts a container from the image you just built.
+2.  **運行容器：** 這個命令會從你剛剛建置的映像啟動一個容器。
     ```bash
     docker run hello-world-app
     ```
 
 ---
-*Original content from README.md:*
+
+更多資訊：
 https://ithelp.ithome.com.tw/m/articles/10260570
+
+## 容器、Linux 處理程序、容器映像與儲存關係
+
+### 什麼是容器 (Container)？
+容器是一種輕量級、可攜式、自給自足的軟體打包技術，它將應用程式及其所有依賴項（如程式庫、運行時、系統工具和程式碼）打包到一個獨立的單元中。容器與虛擬機器不同，它不包含獨立的作業系統核心，而是共享宿主機的 Linux 核心，這使得容器更加輕量和啟動迅速。
+
+### 什麼是 Linux 處理程序 (Linux Process)？
+在 Linux 系統中，處理程序是程式執行的實例。每個處理程序都有自己的記憶體空間、檔案描述符和執行上下文。當我們啟動一個應用程式時，作業系統會創建一個或多個處理程序來運行它。容器本質上是運行在隔離環境中的一個或多個 Linux 處理程序。
+
+### 什麼是容器映像 (Container Image)？
+容器映像是一個輕量級、獨立、可執行的軟體包，它包含了運行應用程式所需的一切，包括程式碼、運行時、程式庫、環境變數和設定檔。容器映像是建置容器的藍圖，它是不可變的，一旦創建就不會改變。當你在 Docker 中使用 `docker build` 命令時，你就是在創建一個容器映像。
+
+### 容器與儲存關係 (Storage Relation)
+容器通常設計為無狀態的，這意味著它們在每次啟動時都應該是全新的。然而，許多應用程式需要持久化儲存資料。為了解決這個問題，Docker 提供了幾種儲存機制：
+
+*   **卷 (Volumes):** 這是容器中儲存資料最推薦的方式。卷是宿主機檔案系統中的一個特殊目錄，可以直接掛載到容器中。即使容器被刪除或重建，卷中的資料也會被保留。
+*   **綁定掛載 (Bind Mounts):** 這種方式允許你將宿主機檔案系統上的任意檔案或目錄直接掛載到容器中。與卷不同，綁定掛載可以掛載宿主機上的任何位置，但它的生命週期與宿主機的檔案系統緊密相關，如果宿主機檔案被刪除，容器中的資料也會丟失。
+*   **tmpfs 掛載 (tmpfs Mounts):** 這種掛載方式將資料儲存在宿主機的記憶體中，而不是寫入檔案系統。它適用於儲存臨時資料，因為資料在容器停止時會被清除。
+
+這些儲存機制使得容器能夠與宿主機進行資料交互，實現資料的持久化，從而支持更複雜的有狀態應用程式。
+
+### 容器與處理程序的深入理解
+
+儘管容器看起來像一個獨立的虛擬機器，但它實際上是建立在 Linux 核心的隔離特性之上的。理解容器如何與 Linux 處理程序交互，關鍵在於以下兩個核心技術：
+
+1.  **Linux 命名空間 (Namespaces):** 命名空間是 Linux 核心提供的一種機制，用於隔離處理程序的系統資源。每個命名空間都提供了一個抽象的視圖，使得處理程序認為自己是唯一擁有這些資源的。容器利用了多種命名空間來實現隔離：
+    *   **PID 命名空間 (PID Namespace):** 隔離處理程序 ID。容器內的處理程序會有自己的 PID 1，而宿主機上的 PID 是不同的。這意味著容器內的處理程序無法直接看到或影響宿主機上的其他處理程序。
+    *   **MNT 命名空間 (Mount Namespace):** 隔離檔案系統掛載點。每個容器都有自己獨立的檔案系統視圖，互不影響。
+    *   **UTS 命名空間 (UTS Namespace):** 隔離主機名和域名。每個容器可以有自己的主機名。
+    *   **NET 命名空間 (Network Namespace):** 隔離網路設備、IP 位址、路由表等。每個容器都有自己獨立的網路堆疊，可以擁有自己的 IP 位址。
+    *   **IPC 命名空間 (IPC Namespace):** 隔離處理程序間通信 (IPC) 資源，如訊息佇列、信號量等。
+    *   **USER 命名空間 (User Namespace):** 隔離使用者和群組 ID。允許容器內的 `root` 使用者在宿主機上映射為非特權使用者，提高了安全性。
+
+    通過這些命名空間，容器內的處理程序被“欺騙”為在一個獨立的作業系統環境中運行，但它們仍然共享宿主機的核心。
+
+2.  **Cgroups (Control Groups):** Cgroups 是 Linux 核心提供的另一個關鍵特性，用於限制、審計和隔離一組處理程序的資源使用（CPU、記憶體、I/O、網路等）。雖然命名空間提供了“隔離視圖”，但 Cgroups 提供了“資源限制”。這意味著容器不僅擁有自己的系統資源視圖，而且其可用的資源量也受到 Cgroups 的限制，從而防止一個容器耗盡宿主機的所有資源。
+
+**總結：** 容器並不是運行一個完整的作業系統，而是在宿主機的 Linux 核心上運行一個或多個被命名空間隔離和 Cgroups 資源限制的處理程序。容器映像提供了這些處理程序運行所需的文件系統和配置，而容器運行時（如 Docker）則負責創建和管理這些隔離環境。這種輕量級的隔離方式是容器技術高效和快速的關鍵。

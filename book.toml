@@ -1,0 +1,5 @@
+[book]
+authors = ["Shawn Wang shawn111@gmail.com"]
+language = "en"
+src = "."
+title = "KaLUG meetup demos"

@@ -1,5 +1,26 @@
 # ebpf
 
+## BPF Tokens in systemd
+Day 1 10:45
+
+Matteo Croce (Meta)
+
+- BPF TOKEN - kernel 6.9
+- https://www.phoronix.com/news/systemd-258-rc2
+
+new BPF delegate options / tokens for the mount of bpffs:
+- BPFDelegateCommands=
+- BPFDelegateMaps=
+- BPFDelegatePrograms=
+- BPFDelegateAttachments=
+
+https://www.youtube.com/watch?v=6vqgEjvE2OQ&t=168s
+https://lwn.net/Articles/947173/
+https://github.com/systemd/systemd/pull/36134
+related: Cross Container Attacks: The Bewildered eBPF on Clouds https://www.usenix.org/system/files/sec23_slides_he.pdf
+demo: 14:00
+
+
 ## Systing: tracing for the lazy 
 
 Day 1 10:45

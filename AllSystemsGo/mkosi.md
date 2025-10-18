@@ -39,3 +39,16 @@
 - <https://build.opensuse.org/package/show/system:systemd/particleos-fedora>
 - <https://build.opensuse.org/package/show/system:systemd/particleos-debian>
 
+
+## From initramfs-tools to mkosi-initrd 
+- Day 1 5:15
+
+Marco d'Itri (debian)
+
+Marco will review the features available in the initramfs-tools ecosystem, the initrd generator used by Debian and Ubuntu, and how they can be implemented (or not) by adopting mkosi-initrd.
+
+- systemd-networkd vs NetworkManager
+
+### references
+- <https://www.youtube.com/watch?v=R_jlWPHEH3Q>
+- slide: <https://www.linux.it/~md/text/mkosi-initrd-asg2025.pdf>
